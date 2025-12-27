@@ -256,6 +256,26 @@
                 font-size: 1.5rem;
             }
         }
+
+        /* ===== Footer (crédito) ===== */
+        footer.site-footer {
+            text-align: center;
+            color: var(--color-text-secondary);
+            font-size: 0.85rem;
+            margin-top: var(--space-24);
+            padding: var(--space-16) 0;
+            border-top: 1px solid var(--color-border);
+        }
+        footer.site-footer strong {
+            color: var(--color-text);
+        }
+        footer.site-footer a {
+            color: var(--color-primary);
+            text-decoration: none;
+        }
+        footer.site-footer a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -348,6 +368,11 @@
         </div>
     </div>
 
+    <!-- ===== Footer con año dinámico y crédito ===== -->
+    <footer class="site-footer">
+        © <span id="anio-actual"></span> – Desarrollado por <strong>Andres Felipe Gonzalez Espindola</strong>
+    </footer>
+
     <script>
         // Constantes para cada tipo de esmalte
         const constantes = {
@@ -360,6 +385,8 @@
         function inicializar() {
             generarColorantes();
             actualizarCalculos();
+            // Año dinámico del footer
+            document.getElementById("anio-actual").textContent = new Date().getFullYear();
         }
 
         // Generar 6 campos para colorantes
