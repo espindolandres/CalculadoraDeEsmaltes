@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Calculadora de colorantes para esmaltes (brillante, satinado y monocapa), con sólidos dependientes de la densidad." />
+  <meta name="description" content="Calculadora de colorantes para esmaltes." />
   <title>Calculadora de Colorantes para Esmalte</title>
 
   <style>
@@ -482,7 +482,7 @@
         <h1>🎨 Calculadora de Colorantes para Esmalte</h1>
         <p class="subtitle">
           Ajusta colorantes con la fórmula: <strong>Volumen (L) × Densidad (kg/L) × Sólidos × %</strong>.
-          Sólidos se calcula según el tipo de esmalte y la densidad (o puedes ingresarlos manual).
+          Sólidos se calcula según el tipo de esmalte.
         </p>
       </div>
       <div class="pill" title="Evita errores de unidades: el sistema normaliza todo internamente">
@@ -496,7 +496,7 @@
         <div class="card-head">
           <div>
             <h2 id="hDatos">1) Datos del esmalte</h2>
-            <p class="muted">Completa volumen y densidad. El sistema calcula sólidos (Auto) según el tipo de esmalte.</p>
+            <p class="muted">Completa volumen y densidad.</p>
           </div>
         </div>
 
@@ -878,7 +878,7 @@
           const tdName = document.createElement("td");
           const inputName = document.createElement("input");
           inputName.type = "text";
-          inputName.placeholder = "Ej: Azul Ftalocianina";
+          inputName.placeholder = "Ej: Azul 3304";
           inputName.value = c.name || "";
           inputName.addEventListener("input", () => {
             state.colorants[idx].name = inputName.value;
