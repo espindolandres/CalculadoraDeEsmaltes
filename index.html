@@ -119,13 +119,6 @@
       white-space: normal;
     }
 
-    .plant-toggle{
-      display:flex;
-      align-items:center;
-      gap: 10px;
-      justify-content: space-between;
-    }
-
     .switch{
       display:flex;
       align-items:center;
@@ -248,23 +241,13 @@
       max-width: 100%;
     }
 
-    /* INVALID más evidente (industria) */
     .invalid{
       border-color: rgba(180,35,24,0.75) !important;
       box-shadow: 0 0 0 4px rgba(180,35,24,0.12) !important;
       background: #fff5f5 !important;
     }
 
-    /* ===== SUMMARY MOBILE-FIRST ===== */
-    .summary{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap: var(--s12);
-      margin-top: var(--s16);
-      padding-top: var(--s16);
-      border-top: 1px solid var(--border);
-    }
-
+    /* ===== METRIC ===== */
     .metric{
       background: #ffffff;
       border: 1px solid var(--border);
@@ -291,6 +274,60 @@
       color: var(--muted);
       font-family: var(--mono);
     }
+
+    /* =====================
+       PLANTA: Masa de sólidos arriba + sticky
+       ===================== */
+    .metric-key{
+      border-width: 2px;
+    }
+    .metric-key .v{
+      font-size: 1.35rem;
+      font-weight: 950;
+    }
+
+    body.plant-mode .metric-key{
+      position: sticky;
+      top: 8px;
+      z-index: 6;
+      background: var(--bg-2);
+      box-shadow: var(--shadow);
+    }
+
+    /* =====================
+       Detalle compacto debajo de Sólidos
+       ===================== */
+    .mini-details{
+      margin-top: 10px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: rgba(255,255,255,0.7);
+      overflow: hidden;
+    }
+    .mini-details summary{
+      list-style: none;
+      cursor: pointer;
+      padding: 12px 14px;
+      font-weight: 900;
+      user-select: none;
+    }
+    .mini-details summary::-webkit-details-marker{ display:none; }
+    .mini-details .mini-body{
+      padding: 12px 14px 14px;
+      border-top: 1px solid var(--border);
+      display: grid;
+      gap: 10px;
+    }
+
+    .mini-metric{
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px;
+      background: #fff;
+    }
+    .mini-metric .k{ color: var(--muted); font-size: 0.85rem; font-weight: 800; }
+    .mini-metric .v{ font-weight: 950; font-size: 1.05rem; margin-top: 2px; }
+    .mini-metric .sub{ margin-top: 2px; font-size: 0.85rem; color: var(--muted); font-family: var(--mono); }
 
     .alerts{
       margin-top: var(--s16);
@@ -331,13 +368,13 @@
     button{
       border: 1px solid transparent;
       border-radius: 10px;
-      padding: 14px 14px; /* mobile-first táctil */
+      padding: 14px 14px;
       cursor:pointer;
       font-weight: 900;
       transition: transform .08s, background-color .15s, border-color .15s, opacity .15s;
       user-select:none;
       letter-spacing: 0.01em;
-      width: 100%; /* mobile-first */
+      width: 100%;
     }
 
     button:active{ transform: translateY(1px); }
@@ -371,7 +408,7 @@
 
     /* ===== Tabla: MOBILE -> TARJETAS ===== */
     .table-wrap{
-      overflow: visible; /* quitamos scroll en móvil */
+      overflow: visible;
       margin-top: var(--s12);
       border: none;
       border-radius: 0;
@@ -381,7 +418,7 @@
     table{
       width:100%;
       border-collapse: separate;
-      border-spacing: 0 12px; /* separación entre tarjetas */
+      border-spacing: 0 12px;
       min-width: 0;
     }
 
@@ -458,8 +495,8 @@
     }
 
     .icon-btn{
-      width: 48px; /* táctil */
-      height: 48px; /* táctil */
+      width: 48px;
+      height: 48px;
       display:inline-flex;
       align-items:center;
       justify-content:center;
@@ -473,7 +510,7 @@
 
     .totals{
       display:flex;
-      flex-direction: column; /* mobile-first */
+      flex-direction: column;
       gap: var(--s12);
       margin-top: var(--s16);
       padding: var(--s16);
@@ -553,11 +590,6 @@
       }
       .input-compact{ max-width: 200px; }
 
-      .summary{
-        grid-template-columns: repeat(12, 1fr);
-      }
-      .metric{ grid-column: span 4; }
-
       .btns{
         flex-direction: row;
         flex-wrap: wrap;
@@ -566,7 +598,6 @@
       }
       button{ width: auto; }
 
-      /* Tabla normal en tablet/desktop */
       .table-wrap{
         overflow:auto;
         border: 1px solid var(--border);
@@ -623,10 +654,8 @@
 
     /* =====================
        OPTIMIZACIÓN PLANTA
-       (cuando activas Modo Planta)
        ===================== */
     body.plant-mode{
-      /* un poquito más sobrio aún */
       background: #eef1f4;
     }
 
@@ -659,67 +688,11 @@
       font-size: 1.12rem;
     }
 
-    /* =====================
-       OPCIÓN 1 REAL (PLANTA):
-       - Masa de sólidos arriba (ya en HTML)
-       - Detalles colapsables
-       - Sticky en modo planta (para no volver a subir)
-       ===================== */
-    .metric-key{
-      border-width: 2px;
-    }
-    .metric-key .v{
-      font-size: 1.35rem;
-      font-weight: 950;
-    }
-
-    body.plant-mode .metric-key{
-      position: sticky;
-      top: 8px;
-      z-index: 6;
-      background: var(--bg-2);
-      box-shadow: 0 10px 26px rgba(0,0,0,0.10);
-    }
-
-    .calc-details{
-      margin-top: var(--s12);
-      border: 2px solid var(--border);
-      border-radius: 12px;
-      background: rgba(255,255,255,0.55);
-      overflow: hidden;
-    }
-
-    .calc-details__summary{
-      list-style: none;
-      cursor: pointer;
-      padding: 14px 16px;
-      font-weight: 950;
-      user-select: none;
-    }
-
-    .calc-details__summary::-webkit-details-marker{
-      display:none;
-    }
-
-    body.plant-mode .metric-key .v{
-      font-size: 1.5rem;
-    }
-    body.plant-mode .calc-details__summary{
-      padding: 18px;
-      font-size: 1.05rem;
-    }
-
-    /* =====================
-       Reducir motion
-       ===================== */
     @media (prefers-reduced-motion: reduce){
       *{ transition:none !important; }
       button:active{ transform:none; }
     }
 
-    /* =====================
-       Modo oscuro (industrial)
-       ===================== */
     @media (prefers-color-scheme: dark){
       :root{
         --bg-1:#0b1220;
@@ -739,7 +712,8 @@
       .pill{ background: rgba(15,23,42,0.9); }
       .pill-badge{ background:#0b1326; }
       .icon-btn{ background:#0b1326; }
-      .calc-details{ background: rgba(15,23,42,0.55); }
+      .mini-details{ background: rgba(15,23,42,0.55); }
+      .mini-metric{ background:#0b1326; border-color: var(--border); }
       body.plant-mode .metric-key{ background: var(--bg-2); }
     }
   </style>
@@ -756,7 +730,6 @@
         </p>
       </div>
 
-      <!-- PILL + MODO PLANTA -->
       <div class="pill" title="Diseño industrial + modo planta para pantallas táctiles">
         <div class="pill-row">
           <div class="pill-badge">✅ Unidades claras • Export TXT/CSV • Guardado automático</div>
@@ -772,7 +745,6 @@
     </header>
 
     <main>
-      <!-- ===================== DATOS DEL ESMALTE ===================== -->
       <section class="card" aria-labelledby="hDatos">
         <div class="card-head">
           <div>
@@ -781,7 +753,7 @@
           </div>
         </div>
 
-        <!-- ✅ DATO CLAVE ARRIBA (para evitar scroll) -->
+        <!-- ✅ DATO CLAVE ARRIBA -->
         <div class="metric metric-key" aria-live="polite" style="margin-bottom: var(--s16);">
           <div class="k">Masa de sólidos (base para %)</div>
           <div class="v" id="outMasaSolidos">—</div>
@@ -833,6 +805,51 @@
               Auto usa: <span style="font-family:var(--mono)">Sólidos(%) = densidad(kg/L) × c1 + c2</span>.
               (c1 y c2 dependen del esmalte).
             </p>
+
+            <!-- ✅ Detalles compactos justo debajo de "Sólidos" -->
+            <details class="mini-details" id="detailsSolidos">
+              <summary>📌 Detalles de cálculo</summary>
+              <div class="mini-body">
+                <div class="mini-metric">
+                  <div class="k">Volumen normalizado</div>
+                  <div class="v" id="outVolumenL">—</div>
+                  <div class="sub" id="outVolumenRaw">—</div>
+                </div>
+
+                <div class="mini-metric">
+                  <div class="k">Densidad normalizada</div>
+                  <div class="v" id="outDensidadKgL">—</div>
+                  <div class="sub" id="outDensidadRaw">—</div>
+                </div>
+
+                <div class="mini-metric">
+                  <div class="k">Sólidos</div>
+                  <div class="v" id="outSolidosPct">—</div>
+                  <div class="sub" id="outSolidosFrac">—</div>
+                </div>
+
+                <div class="mini-metric">
+                  <div class="k">Masa total</div>
+                  <div class="v" id="outMasaTotal">—</div>
+                  <div class="sub">Volumen(L) × Densidad(kg/L)</div>
+                </div>
+
+                <div class="mini-metric">
+                  <div class="k">Constantes del tipo</div>
+                  <div class="v" id="outConstantes">—</div>
+                  <div class="sub">Auto: S(%) = dens×c1 + c2</div>
+                </div>
+
+                <div class="alerts" style="margin-top: 0;">
+                  <div class="alert error" id="alertError" hidden></div>
+                  <div class="alert warning" id="alertWarning" hidden></div>
+                  <div class="alert info" id="alertInfo">
+                    <strong>Tip:</strong> El porcentaje de cada colorante se aplica sobre la <strong>masa de sólidos</strong>.
+                    Ejemplo: 100 L × 1.81 kg/L × 0.72 × 10% ≈ 13.03 kg.
+                  </div>
+                </div>
+              </div>
+            </details>
           </div>
 
           <div class="field col-6" id="wrapSolidosManual" hidden>
@@ -841,51 +858,8 @@
             <p class="help" id="helpSolidosManual">Ingresa el porcentaje de sólidos (0–100). Se convertirá a fracción (0–1).</p>
           </div>
         </div>
-
-        <!-- ✅ Detalles ocultos: se abren solo si hay warning/error -->
-        <details class="calc-details" id="detailsCalc">
-          <summary class="calc-details__summary">📌 Ver detalles de cálculo</summary>
-
-          <div class="summary" aria-live="polite">
-            <div class="metric">
-              <div class="k">Volumen normalizado</div>
-              <div class="v" id="outVolumenL">—</div>
-              <div class="sub" id="outVolumenRaw">—</div>
-            </div>
-            <div class="metric">
-              <div class="k">Densidad normalizada</div>
-              <div class="v" id="outDensidadKgL">—</div>
-              <div class="sub" id="outDensidadRaw">—</div>
-            </div>
-            <div class="metric">
-              <div class="k">Sólidos</div>
-              <div class="v" id="outSolidosPct">—</div>
-              <div class="sub" id="outSolidosFrac">—</div>
-            </div>
-            <div class="metric">
-              <div class="k">Masa total del esmalte</div>
-              <div class="v" id="outMasaTotal">—</div>
-              <div class="sub">Volumen(L) × Densidad(kg/L)</div>
-            </div>
-            <div class="metric">
-              <div class="k">Constantes del tipo</div>
-              <div class="v" id="outConstantes">—</div>
-              <div class="sub">Auto: S(%) = dens×c1 + c2</div>
-            </div>
-          </div>
-
-          <div class="alerts">
-            <div class="alert error" id="alertError" hidden></div>
-            <div class="alert warning" id="alertWarning" hidden></div>
-            <div class="alert info" id="alertInfo">
-              <strong>Tip:</strong> El porcentaje de cada colorante se aplica sobre la <strong>masa de sólidos</strong>.
-              Ejemplo: 100 L × 1.81 kg/L × 0.72 × 10% ≈ 13.03 kg.
-            </div>
-          </div>
-        </details>
       </section>
 
-      <!-- ===================== COLORANTES ===================== -->
       <section class="card" aria-labelledby="hColorantes">
         <div class="card-head">
           <div>
@@ -953,14 +927,12 @@
       // Modo planta (UI)
       const PLANT_KEY = "calc-colorantes-plant-mode";
 
-      // Constantes por tipo (las que ya usas)
       const esmaltes = {
         brillante: { label: "Brillante", c1: 44.271, c2: -8.7573 },
         satinado:  { label: "Satinado",  c1: 44.764, c2: -11.58  },
         monocapa:  { label: "Monocapa",  c1: 46.75,  c2: -15.389 }
       };
 
-      // --------- Helpers ---------
       const nf2 = new Intl.NumberFormat("es-CO", { maximumFractionDigits: 2 });
       const nf4 = new Intl.NumberFormat("es-CO", { maximumFractionDigits: 4 });
       const nf6 = new Intl.NumberFormat("es-CO", { maximumFractionDigits: 6 });
@@ -1028,21 +1000,19 @@
         el.alertWarning.textContent = "";
       }
 
-      // ✅ abre detalles automáticamente
+      // ✅ abre los detalles compactos SOLO si hay warning/error
       function setError(msg) {
         el.alertError.textContent = msg;
         el.alertError.hidden = false;
-        if (el.detailsCalc) el.detailsCalc.open = true;
+        if (el.detailsSolidos) el.detailsSolidos.open = true;
       }
 
-      // ✅ abre detalles automáticamente
       function setWarning(msg) {
         el.alertWarning.textContent = msg;
         el.alertWarning.hidden = false;
-        if (el.detailsCalc) el.detailsCalc.open = true;
+        if (el.detailsSolidos) el.detailsSolidos.open = true;
       }
 
-      // --------- DOM ---------
       const el = {
         plantMode: document.getElementById("plantMode"),
 
@@ -1068,6 +1038,8 @@
         alertError: document.getElementById("alertError"),
         alertWarning: document.getElementById("alertWarning"),
 
+        detailsSolidos: document.getElementById("detailsSolidos"),
+
         body: document.getElementById("colorantsBody"),
         outPctTotal: document.getElementById("outPctTotal"),
         outTotalAdd: document.getElementById("outTotalAdd"),
@@ -1079,13 +1051,9 @@
         btnTxt: document.getElementById("btnTxt"),
         btnCsv: document.getElementById("btnCsv"),
 
-        toast: document.getElementById("toast"),
-
-        // ✅ NUEVO
-        detailsCalc: document.getElementById("detailsCalc")
+        toast: document.getElementById("toast")
       };
 
-      // --------- Estado ---------
       function defaultColorants() {
         return [
           { name: "", pct: "" },
@@ -1140,9 +1108,7 @@
         localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
       }
 
-      // --------- Render ---------
       function renderAll() {
-        // set inputs
         el.esmalteTipo.value = state.tipo;
         el.volumen.value = state.vol;
         el.volumenUnidad.value = state.volU;
@@ -1164,13 +1130,11 @@
         state.colorants.forEach((c, idx) => {
           const tr = document.createElement("tr");
 
-          // # column
           const tdNum = document.createElement("td");
           tdNum.className = "col-num";
           tdNum.textContent = String(idx + 1);
           tr.appendChild(tdNum);
 
-          // Name
           const tdName = document.createElement("td");
           const inputName = document.createElement("input");
           inputName.type = "text";
@@ -1184,7 +1148,6 @@
           tdName.appendChild(inputName);
           tr.appendChild(tdName);
 
-          // Percent
           const tdPct = document.createElement("td");
           const inputPct = document.createElement("input");
           inputPct.type = "text";
@@ -1199,7 +1162,6 @@
           tdPct.appendChild(inputPct);
           tr.appendChild(tdPct);
 
-          // Result
           const tdRes = document.createElement("td");
           const resMain = document.createElement("span");
           resMain.className = "result";
@@ -1215,7 +1177,6 @@
           tdRes.appendChild(resSub);
           tr.appendChild(tdRes);
 
-          // Remove button
           const tdRm = document.createElement("td");
           tdRm.className = "row-actions";
           const btn = document.createElement("button");
@@ -1239,7 +1200,6 @@
       }
 
       function updateDensityPlaceholder() {
-        // Solo para guiar al usuario
         if (el.densidadUnidad.value === "kgm3") {
           el.densidad.placeholder = "Ej: 1810";
         } else {
@@ -1247,7 +1207,6 @@
         }
       }
 
-      // --------- Cálculo ---------
       function getNormalizedInputs() {
         const tipo = el.esmalteTipo.value;
 
@@ -1272,7 +1231,6 @@
           if (!Number.isFinite(solManPct)) return NaN;
           return solManPct / 100;
         }
-        // Auto
         const { c1, c2 } = esmaltes[tipo];
         if (!Number.isFinite(densKgL)) return NaN;
         return ((densKgL * c1) + c2) / 100;
@@ -1282,16 +1240,13 @@
         clearAlerts();
         showToast("");
 
-        // limpiar estilos invalid
         [el.volumen, el.densidad, el.solidosManual].forEach(x => x.classList.remove("invalid"));
 
         const { tipo, volRaw, volU, volL, densRaw, densU, densKgL, solModo, solManPct } = getNormalizedInputs();
         const { c1, c2, label } = esmaltes[tipo];
 
-        // Mostrar constantes del tipo
         el.outConstantes.textContent = `${label}: c1=${c1}, c2=${c2}`;
 
-        // Validaciones mínimas
         let hasError = false;
 
         if (!Number.isFinite(volRaw) || volRaw <= 0) {
@@ -1311,7 +1266,6 @@
           }
         }
 
-        // Normalizados en pantalla (detalles)
         el.outVolumenL.textContent = formatL(Number.isFinite(volL) ? volL : NaN);
         el.outVolumenRaw.textContent = `entrada: ${Number.isFinite(volRaw) ? nf4.format(volRaw) : "—"} ${volU === "litros" ? "L" : "mL"}`;
 
@@ -1323,12 +1277,10 @@
         el.outSolidosPct.textContent = solidsFmt.pct;
         el.outSolidosFrac.textContent = solidsFmt.frac;
 
-        // advertencia si sólidos fuera de rango típico
         if (Number.isFinite(solFrac) && (solFrac <= 0 || solFrac > 1)) {
           setWarning("Sólidos calculados fuera de rango (0–1). Revisa unidad de densidad o usa 'Sólidos manual'.");
         }
 
-        // Si hay error fuerte, no calculamos masas
         const canCompute =
           !hasError &&
           Number.isFinite(volL) && volL > 0 &&
@@ -1338,7 +1290,7 @@
         if (!canCompute) {
           el.outMasaTotal.textContent = "—";
           el.outMasaSolidos.textContent = "—";
-          // resultados por fila
+
           state.colorants.forEach((_, idx) => {
             const main = document.getElementById(`resMain-${idx}`);
             const sub = document.getElementById(`resSub-${idx}`);
@@ -1361,14 +1313,12 @@
           return;
         }
 
-        // Masas base
         const masaTotalKg = volL * densKgL;
         const masaSolidosKg = masaTotalKg * solFrac;
 
         el.outMasaTotal.textContent = formatKg(masaTotalKg);
         el.outMasaSolidos.textContent = formatKg(masaSolidosKg);
 
-        // Colorantes
         let totalPct = 0;
         let totalG = 0;
 
@@ -1376,7 +1326,6 @@
           const pct = parseNumber(c.pct);
           const pctClamped = Number.isFinite(pct) ? pct : 0;
 
-          // marcar invalid si pct > 100 o < 0
           const pctInput = el.body.querySelectorAll("tr")[idx]?.querySelectorAll("input")[1];
           if (pctInput) {
             pctInput.classList.toggle("invalid", Number.isFinite(pct) && (pct < 0 || pct > 100));
@@ -1384,7 +1333,7 @@
 
           totalPct += pctClamped;
 
-          const g = masaSolidosKg * (pctClamped / 100) * 1000; // kg -> g
+          const g = masaSolidosKg * (pctClamped / 100) * 1000;
           totalG += g;
 
           const pretty = massToPretty(g);
@@ -1395,11 +1344,9 @@
         });
 
         el.outPctTotal.textContent = formatPct(totalPct);
-
         const prettyTotal = massToPretty(totalG);
         el.outTotalAdd.textContent = prettyTotal.main;
 
-        // Estado / warnings
         if (totalPct > 100.0001) {
           el.outEstado.textContent = "Revisar % total";
           setWarning("El porcentaje total de colorantes supera 100%. Verifica si eso es lo esperado para tu formulación.");
@@ -1409,7 +1356,6 @@
           el.outEstado.textContent = "OK";
         }
 
-        // Habilitar export si hay al menos un colorante con pct > 0 o nombre
         const hasAny = state.colorants.some(c => {
           const p = parseNumber(c.pct);
           return (Number.isFinite(p) && p > 0) || (String(c.name || "").trim().length > 0);
@@ -1449,7 +1395,6 @@
         };
       }
 
-      // --------- Reportes ---------
       function buildReportText(data) {
         const dt = data.generatedAt.toISOString().replace("T", " ").slice(0, 19);
 
@@ -1541,7 +1486,6 @@
         showToast("⬇️ CSV descargado.");
       }
 
-      // --------- Modo Planta ---------
       function applyPlantMode(isOn) {
         document.body.classList.toggle("plant-mode", !!isOn);
         if (el.plantMode) el.plantMode.checked = !!isOn;
@@ -1558,9 +1502,7 @@
         }
       }
 
-      // --------- Eventos ---------
       function wireEvents() {
-        // Plant mode toggle
         if (el.plantMode) {
           el.plantMode.addEventListener("change", () => {
             applyPlantMode(el.plantMode.checked);
@@ -1636,15 +1578,13 @@
         el.btnCsv.addEventListener("click", exportCSV);
       }
 
-      // --------- Init ---------
       function init() {
         document.getElementById("anio-actual").textContent = new Date().getFullYear();
 
-        // aplica modo planta desde storage antes de render
         applyPlantMode(loadPlantMode());
 
-        // ✅ Detalles cerrados por defecto (abre solo con warning/error)
-        if (el.detailsCalc) el.detailsCalc.open = false;
+        // ✅ En planta: detalles cerrados por defecto
+        if (el.detailsSolidos) el.detailsSolidos.open = false;
 
         wireEvents();
         renderAll();
@@ -1654,4 +1594,4 @@
     })();
   </script>
 </body>
-</html>
+  </html>
