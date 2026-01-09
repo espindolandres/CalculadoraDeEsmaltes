@@ -660,6 +660,45 @@
     }
 
     /* =====================
+       Detalles colapsables + DATO CLAVE (OPCIÓN 1 PLANTA)
+       ===================== */
+    .metric-key{
+      border-width: 2px;
+    }
+    .metric-key .v{
+      font-size: 1.35rem;
+      font-weight: 950;
+    }
+
+    .calc-details{
+      margin-top: var(--s12);
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      background: rgba(255,255,255,0.55);
+      overflow: hidden;
+    }
+
+    .calc-details__summary{
+      list-style: none;
+      cursor: pointer;
+      padding: 14px 16px;
+      font-weight: 950;
+      user-select: none;
+    }
+
+    .calc-details__summary::-webkit-details-marker{
+      display:none;
+    }
+
+    body.plant-mode .metric-key .v{
+      font-size: 1.5rem;
+    }
+    body.plant-mode .calc-details__summary{
+      padding: 18px;
+      font-size: 1.05rem;
+    }
+
+    /* =====================
        Reducir motion
        ===================== */
     @media (prefers-reduced-motion: reduce){
@@ -689,6 +728,10 @@
       .pill{ background: rgba(15,23,42,0.9); }
       .pill-badge{ background:#0b1326; }
       .icon-btn{ background:#0b1326; }
+
+      .calc-details{
+        background: rgba(15,23,42,0.55);
+      }
     }
   </style>
 </head>
@@ -783,47 +826,54 @@
           </div>
         </div>
 
-        <div class="summary" aria-live="polite">
-          <div class="metric">
-            <div class="k">Volumen normalizado</div>
-            <div class="v" id="outVolumenL">—</div>
-            <div class="sub" id="outVolumenRaw">—</div>
-          </div>
-          <div class="metric">
-            <div class="k">Densidad normalizada</div>
-            <div class="v" id="outDensidadKgL">—</div>
-            <div class="sub" id="outDensidadRaw">—</div>
-          </div>
-          <div class="metric">
-            <div class="k">Sólidos</div>
-            <div class="v" id="outSolidosPct">—</div>
-            <div class="sub" id="outSolidosFrac">—</div>
-          </div>
-          <div class="metric">
-            <div class="k">Masa total del esmalte</div>
-            <div class="v" id="outMasaTotal">—</div>
-            <div class="sub">Volumen(L) × Densidad(kg/L)</div>
-          </div>
-          <div class="metric">
-            <div class="k">Masa de sólidos</div>
-            <div class="v" id="outMasaSolidos">—</div>
-            <div class="sub">Masa total × Sólidos</div>
-          </div>
-          <div class="metric">
-            <div class="k">Constantes del tipo</div>
-            <div class="v" id="outConstantes">—</div>
-            <div class="sub">Auto: S(%) = dens×c1 + c2</div>
-          </div>
+        <!-- ===================== OPCIÓN 1 (PLANTA): SOLO DATO CLAVE VISIBLE ===================== -->
+        <div class="metric metric-key" aria-live="polite" style="margin-top: var(--s16);">
+          <div class="k">Masa de sólidos (base para %)</div>
+          <div class="v" id="outMasaSolidos">—</div>
+          <div class="sub">Masa total × Sólidos</div>
         </div>
 
-        <div class="alerts">
-          <div class="alert error" id="alertError" hidden></div>
-          <div class="alert warning" id="alertWarning" hidden></div>
-          <div class="alert info" id="alertInfo">
-            <strong>Tip:</strong> El porcentaje de cada colorante se aplica sobre la <strong>masa de sólidos</strong>.
-            Ejemplo: 100 L × 1.81 kg/L × 0.72 × 10% ≈ 13.03 kg.
+        <!-- ===================== DETALLES OCULTOS ===================== -->
+        <details class="calc-details" id="detailsCalc">
+          <summary class="calc-details__summary">📌 Ver detalles de cálculo</summary>
+
+          <div class="summary" aria-live="polite">
+            <div class="metric">
+              <div class="k">Volumen normalizado</div>
+              <div class="v" id="outVolumenL">—</div>
+              <div class="sub" id="outVolumenRaw">—</div>
+            </div>
+            <div class="metric">
+              <div class="k">Densidad normalizada</div>
+              <div class="v" id="outDensidadKgL">—</div>
+              <div class="sub" id="outDensidadRaw">—</div>
+            </div>
+            <div class="metric">
+              <div class="k">Sólidos</div>
+              <div class="v" id="outSolidosPct">—</div>
+              <div class="sub" id="outSolidosFrac">—</div>
+            </div>
+            <div class="metric">
+              <div class="k">Masa total del esmalte</div>
+              <div class="v" id="outMasaTotal">—</div>
+              <div class="sub">Volumen(L) × Densidad(kg/L)</div>
+            </div>
+            <div class="metric">
+              <div class="k">Constantes del tipo</div>
+              <div class="v" id="outConstantes">—</div>
+              <div class="sub">Auto: S(%) = dens×c1 + c2</div>
+            </div>
           </div>
-        </div>
+
+          <div class="alerts">
+            <div class="alert error" id="alertError" hidden></div>
+            <div class="alert warning" id="alertWarning" hidden></div>
+            <div class="alert info" id="alertInfo">
+              <strong>Tip:</strong> El porcentaje de cada colorante se aplica sobre la <strong>masa de sólidos</strong>.
+              Ejemplo: 100 L × 1.81 kg/L × 0.72 × 10% ≈ 13.03 kg.
+            </div>
+          </div>
+        </details>
       </section>
 
       <!-- ===================== COLORANTES ===================== -->
@@ -967,16 +1017,21 @@
         el.alertWarning.hidden = true;
         el.alertError.textContent = "";
         el.alertWarning.textContent = "";
+        // Nota: no cerramos details aquí; solo abre en warning/error.
       }
 
+      // ✅ MODIFICADO: abre detalles automáticamente
       function setError(msg) {
         el.alertError.textContent = msg;
         el.alertError.hidden = false;
+        if (el.detailsCalc) el.detailsCalc.open = true;
       }
 
+      // ✅ MODIFICADO: abre detalles automáticamente
       function setWarning(msg) {
         el.alertWarning.textContent = msg;
         el.alertWarning.hidden = false;
+        if (el.detailsCalc) el.detailsCalc.open = true;
       }
 
       // --------- DOM ---------
@@ -1016,7 +1071,10 @@
         btnTxt: document.getElementById("btnTxt"),
         btnCsv: document.getElementById("btnCsv"),
 
-        toast: document.getElementById("toast")
+        toast: document.getElementById("toast"),
+
+        // ✅ NUEVO: details para abrir/cerrar
+        detailsCalc: document.getElementById("detailsCalc")
       };
 
       // --------- Estado ---------
@@ -1245,7 +1303,7 @@
           }
         }
 
-        // Normalizados en pantalla
+        // Normalizados en pantalla (dentro de detalles)
         el.outVolumenL.textContent = formatL(Number.isFinite(volL) ? volL : NaN);
         el.outVolumenRaw.textContent = `entrada: ${Number.isFinite(volRaw) ? nf4.format(volRaw) : "—"} ${volU === "litros" ? "L" : "mL"}`;
 
@@ -1576,6 +1634,9 @@
 
         // aplica modo planta desde storage antes de render
         applyPlantMode(loadPlantMode());
+
+        // ✅ OPCIÓN 1: detalles cerrados por defecto (se abre solo con warning/error)
+        if (el.detailsCalc) el.detailsCalc.open = false;
 
         wireEvents();
         renderAll();
