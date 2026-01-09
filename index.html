@@ -660,7 +660,10 @@
     }
 
     /* =====================
-       Detalles colapsables + DATO CLAVE (OPCIÓN 1 PLANTA)
+       OPCIÓN 1 REAL (PLANTA):
+       - Masa de sólidos arriba (ya en HTML)
+       - Detalles colapsables
+       - Sticky en modo planta (para no volver a subir)
        ===================== */
     .metric-key{
       border-width: 2px;
@@ -668,6 +671,14 @@
     .metric-key .v{
       font-size: 1.35rem;
       font-weight: 950;
+    }
+
+    body.plant-mode .metric-key{
+      position: sticky;
+      top: 8px;
+      z-index: 6;
+      background: var(--bg-2);
+      box-shadow: 0 10px 26px rgba(0,0,0,0.10);
     }
 
     .calc-details{
@@ -728,10 +739,8 @@
       .pill{ background: rgba(15,23,42,0.9); }
       .pill-badge{ background:#0b1326; }
       .icon-btn{ background:#0b1326; }
-
-      .calc-details{
-        background: rgba(15,23,42,0.55);
-      }
+      .calc-details{ background: rgba(15,23,42,0.55); }
+      body.plant-mode .metric-key{ background: var(--bg-2); }
     }
   </style>
 </head>
@@ -770,6 +779,13 @@
             <h2 id="hDatos">1) Datos del esmalte</h2>
             <p class="muted">Completa volumen y densidad.</p>
           </div>
+        </div>
+
+        <!-- ✅ DATO CLAVE ARRIBA (para evitar scroll) -->
+        <div class="metric metric-key" aria-live="polite" style="margin-bottom: var(--s16);">
+          <div class="k">Masa de sólidos (base para %)</div>
+          <div class="v" id="outMasaSolidos">—</div>
+          <div class="sub">Masa total × Sólidos</div>
         </div>
 
         <div class="grid">
@@ -826,14 +842,7 @@
           </div>
         </div>
 
-        <!-- ===================== OPCIÓN 1 (PLANTA): SOLO DATO CLAVE VISIBLE ===================== -->
-        <div class="metric metric-key" aria-live="polite" style="margin-top: var(--s16);">
-          <div class="k">Masa de sólidos (base para %)</div>
-          <div class="v" id="outMasaSolidos">—</div>
-          <div class="sub">Masa total × Sólidos</div>
-        </div>
-
-        <!-- ===================== DETALLES OCULTOS ===================== -->
+        <!-- ✅ Detalles ocultos: se abren solo si hay warning/error -->
         <details class="calc-details" id="detailsCalc">
           <summary class="calc-details__summary">📌 Ver detalles de cálculo</summary>
 
@@ -1017,17 +1026,16 @@
         el.alertWarning.hidden = true;
         el.alertError.textContent = "";
         el.alertWarning.textContent = "";
-        // Nota: no cerramos details aquí; solo abre en warning/error.
       }
 
-      // ✅ MODIFICADO: abre detalles automáticamente
+      // ✅ abre detalles automáticamente
       function setError(msg) {
         el.alertError.textContent = msg;
         el.alertError.hidden = false;
         if (el.detailsCalc) el.detailsCalc.open = true;
       }
 
-      // ✅ MODIFICADO: abre detalles automáticamente
+      // ✅ abre detalles automáticamente
       function setWarning(msg) {
         el.alertWarning.textContent = msg;
         el.alertWarning.hidden = false;
@@ -1073,7 +1081,7 @@
 
         toast: document.getElementById("toast"),
 
-        // ✅ NUEVO: details para abrir/cerrar
+        // ✅ NUEVO
         detailsCalc: document.getElementById("detailsCalc")
       };
 
@@ -1303,7 +1311,7 @@
           }
         }
 
-        // Normalizados en pantalla (dentro de detalles)
+        // Normalizados en pantalla (detalles)
         el.outVolumenL.textContent = formatL(Number.isFinite(volL) ? volL : NaN);
         el.outVolumenRaw.textContent = `entrada: ${Number.isFinite(volRaw) ? nf4.format(volRaw) : "—"} ${volU === "litros" ? "L" : "mL"}`;
 
@@ -1635,7 +1643,7 @@
         // aplica modo planta desde storage antes de render
         applyPlantMode(loadPlantMode());
 
-        // ✅ OPCIÓN 1: detalles cerrados por defecto (se abre solo con warning/error)
+        // ✅ Detalles cerrados por defecto (abre solo con warning/error)
         if (el.detailsCalc) el.detailsCalc.open = false;
 
         wireEvents();
