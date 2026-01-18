@@ -8,9 +8,6 @@
 
   <style>
     :root{
-      /* =====================
-         TEMA INDUSTRIAL (BASE)
-         ===================== */
       --primary:#0b5ea8;
       --primary-hover:#094f8f;
       --primary-active:#073f73;
@@ -48,13 +45,10 @@
       font-family:var(--font);
       color:var(--text);
       background: var(--bg-1);
-      padding: 12px; /* mobile-first */
+      padding: 12px;
     }
 
-    .container{
-      max-width: 1020px;
-      margin: 0 auto;
-    }
+    .container{ max-width: 1020px; margin: 0 auto; }
 
     header.app-header{
       display:flex;
@@ -62,18 +56,14 @@
       justify-content:space-between;
       gap: var(--s12);
       margin-bottom: var(--s16);
-      flex-direction: column; /* mobile-first */
+      flex-direction: column;
     }
 
-    .title-wrap{
-      display:flex;
-      flex-direction:column;
-      gap: var(--s8);
-    }
+    .title-wrap{ display:flex; flex-direction:column; gap: var(--s8); }
 
     h1{
       margin:0;
-      font-size: 1.35rem; /* mobile-first */
+      font-size: 1.35rem;
       letter-spacing: -0.02em;
       line-height: 1.15;
     }
@@ -133,17 +123,14 @@
       accent-color: var(--primary);
     }
 
-    main{
-      display:grid;
-      gap: var(--s16); /* mobile-first */
-    }
+    main{ display:grid; gap: var(--s16); }
 
     .card{
       background: var(--bg-2);
       border: 1.5px solid var(--border);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      padding: var(--s16); /* mobile-first */
+      padding: var(--s16);
     }
 
     .card-head{
@@ -152,7 +139,7 @@
       justify-content:space-between;
       gap: var(--s12);
       margin-bottom: var(--s12);
-      flex-direction: column; /* mobile-first */
+      flex-direction: column;
     }
 
     .card h2{
@@ -168,7 +155,6 @@
       line-height: 1.4;
     }
 
-    /* ===== MOBILE-FIRST GRID ===== */
     .grid{
       display:grid;
       grid-template-columns: 1fr;
@@ -178,16 +164,9 @@
 
     .col-6, .col-4, .col-8, .col-12{ grid-column: auto; }
 
-    .field{
-      display:flex;
-      flex-direction:column;
-      gap: var(--s8);
-    }
+    .field{ display:flex; flex-direction:column; gap: var(--s8); }
 
-    label{
-      font-weight: 800;
-      font-size: 0.93rem;
-    }
+    label{ font-weight: 800; font-size: 0.93rem; }
 
     .help{
       margin: 0;
@@ -198,19 +177,16 @@
 
     .input-row{
       display:flex;
-      flex-direction: column; /* mobile-first */
-      gap: var(--s10, 10px);
+      flex-direction: column;
+      gap: 10px;
       align-items: stretch;
     }
 
-    input, select, button{
-      font-family: var(--font);
-      font-size: 1rem; /* mobile-first: más legible */
-    }
+    input, select, button{ font-family: var(--font); font-size: 1rem; }
 
     input, select{
       width: 100%;
-      padding: 14px 12px; /* mobile-first: táctil */
+      padding: 14px 12px;
       border: 1px solid var(--border);
       border-radius: 10px;
       background: #ffffff;
@@ -237,54 +213,25 @@
       box-shadow: 0 0 0 4px rgba(11,94,168,0.16);
     }
 
-    .input-compact{
-      max-width: 100%;
-    }
-
     .invalid{
       border-color: rgba(180,35,24,0.75) !important;
       box-shadow: 0 0 0 4px rgba(180,35,24,0.12) !important;
       background: #fff5f5 !important;
     }
 
-    /* ===== METRIC ===== */
     .metric{
       background: #ffffff;
       border: 1px solid var(--border);
       border-radius: 12px;
       padding: var(--s16);
-      min-height: auto;
     }
 
-    .metric .k{
-      color: var(--muted);
-      font-size: 0.85rem;
-      margin-bottom: var(--s4);
-    }
+    .metric .k{ color: var(--muted); font-size: 0.85rem; margin-bottom: var(--s4); }
+    .metric .v{ font-weight: 900; letter-spacing: -0.01em; font-size: 1.06rem; }
+    .metric .sub{ margin-top: var(--s4); font-size: 0.85rem; color: var(--muted); font-family: var(--mono); }
 
-    .metric .v{
-      font-weight: 900;
-      letter-spacing: -0.01em;
-      font-size: 1.06rem;
-    }
-
-    .metric .sub{
-      margin-top: var(--s4);
-      font-size: 0.85rem;
-      color: var(--muted);
-      font-family: var(--mono);
-    }
-
-    /* =====================
-       PLANTA: Masa de sólidos arriba + sticky
-       ===================== */
-    .metric-key{
-      border-width: 2px;
-    }
-    .metric-key .v{
-      font-size: 1.35rem;
-      font-weight: 950;
-    }
+    .metric-key{ border-width: 2px; }
+    .metric-key .v{ font-size: 1.35rem; font-weight: 950; }
 
     body.plant-mode .metric-key{
       position: sticky;
@@ -294,9 +241,6 @@
       box-shadow: var(--shadow);
     }
 
-    /* =====================
-       Detalle compacto debajo de Sólidos
-       ===================== */
     .mini-details{
       margin-top: 10px;
       border: 1px solid var(--border);
@@ -359,7 +303,7 @@
 
     .btns{
       display:flex;
-      flex-direction: column; /* mobile-first */
+      flex-direction: column;
       gap: var(--s12);
       align-items: stretch;
       width: 100%;
@@ -376,13 +320,9 @@
       letter-spacing: 0.01em;
       width: 100%;
     }
-
     button:active{ transform: translateY(1px); }
 
-    .btn-primary{
-      background: var(--primary);
-      color: #fff;
-    }
+    .btn-primary{ background: var(--primary); color: #fff; }
     .btn-primary:hover{ background: var(--primary-hover); }
     .btn-primary:active{ background: var(--primary-active); }
 
@@ -406,7 +346,6 @@
       transform:none;
     }
 
-    /* ===== Tabla: MOBILE -> TARJETAS ===== */
     .table-wrap{
       overflow: visible;
       margin-top: var(--s12);
@@ -556,9 +495,6 @@
     }
     footer strong{ color: var(--text); }
 
-    /* =====================
-       TABLET+ (>= 601px)
-       ===================== */
     @media (min-width: 601px){
       body{ padding: var(--s24); }
 
@@ -588,7 +524,6 @@
         align-items:center;
         gap: var(--s12);
       }
-      .input-compact{ max-width: 200px; }
 
       .btns{
         flex-direction: row;
@@ -652,70 +587,36 @@
       .icon-btn{ width: 44px; height: 44px; }
     }
 
-    /* =====================
-       OPTIMIZACIÓN PLANTA
-       ===================== */
-    body.plant-mode{
-      background: #eef1f4;
+    body.plant-mode{ background: #eef1f4; }
+
+    /* ========= OCULTAR SOLIDOS ========= */
+    #wrapSolidosModo,
+    #wrapSolidosManual,
+    #solidosModo,
+    #solidosManual,
+    label[for="solidosModo"],
+    label[for="solidosManual"]{
+      display:none !important;
     }
 
-    body.plant-mode input,
-    body.plant-mode select{
-      padding: 18px 14px;
-      font-size: 1.1rem;
+    /* ========= DETALLES COMO BOTÓN ========= */
+    .mini-details summary{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap: 8px;
+      background: #eef2f7;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      padding: 12px;
+      border: 1px solid var(--border);
     }
+    .mini-details summary:hover{ background:#e5eaf1; }
+    .mini-details[open] summary{ background:#e0e7f1; }
 
-    body.plant-mode button{
-      padding: 16px 18px;
-      font-size: 1.1rem;
-    }
+    /* Ocultar tip hasta que se abra */
+    #detailsSolidos:not([open]) #alertInfo{ display:none; }
 
-    body.plant-mode .icon-btn{
-      width: 56px;
-      height: 56px;
-    }
-
-    body.plant-mode .card{
-      border-width: 2px;
-    }
-
-    body.plant-mode .metric .v,
-    body.plant-mode .total-item .v{
-      font-size: 1.2rem;
-    }
-
-    body.plant-mode .result{
-      font-size: 1.12rem;
-    }
-
-    @media (prefers-reduced-motion: reduce){
-      *{ transition:none !important; }
-      button:active{ transform:none; }
-    }
-
-    @media (prefers-color-scheme: dark){
-      :root{
-        --bg-1:#0b1220;
-        --bg-2:#0f172a;
-        --text:#e5e7eb;
-        --muted:#9aa4b2;
-        --border:#263247;
-        --shadow: 0 12px 35px rgba(0,0,0,0.55);
-      }
-      body{
-        background: var(--bg-1);
-      }
-      input,select{ background:#0b1326; color: var(--text); }
-      .table-wrap{ background:#0f172a; }
-      .metric{ background:#0b1326; border-color: var(--border); }
-      .totals{ background:#0b1326; border-color: var(--border); }
-      .pill{ background: rgba(15,23,42,0.9); }
-      .pill-badge{ background:#0b1326; }
-      .icon-btn{ background:#0b1326; }
-      .mini-details{ background: rgba(15,23,42,0.55); }
-      .mini-metric{ background:#0b1326; border-color: var(--border); }
-      body.plant-mode .metric-key{ background: var(--bg-2); }
-    }
   </style>
 </head>
 
@@ -753,7 +654,6 @@
           </div>
         </div>
 
-        <!-- ✅ DATO CLAVE ARRIBA -->
         <div class="metric metric-key" aria-live="polite" style="margin-bottom: var(--s16);">
           <div class="k">Masa de sólidos (base para %)</div>
           <div class="v" id="outMasaSolidos">—</div>
@@ -768,47 +668,45 @@
               <option value="satinado">Satinado</option>
               <option value="monocapa">Monocapa</option>
             </select>
-            <p class="help" id="helpTipo">Cada tipo usa constantes <span style="font-family:var(--mono)">c1</span> y <span style="font-family:var(--mono)">c2</span> diferentes.</p>
           </div>
 
           <div class="field col-4">
             <label for="volumen">Volumen a colorear</label>
             <div class="input-row">
-              <input id="volumen" type="text" inputmode="decimal" placeholder="Ej: 100" aria-describedby="helpVolumen" />
-              <select id="volumenUnidad" class="input-compact" aria-label="Unidad de volumen">
+              <input id="volumen" type="text" inputmode="decimal" placeholder="Ej: 100" />
+              <select id="volumenUnidad" class="input-compact">
                 <option value="litros">L</option>
                 <option value="mililitros">mL</option>
               </select>
             </div>
-            <p class="help" id="helpVolumen">Se normaliza internamente a litros (L).</p>
+            <p class="help">Se normaliza internamente a litros (L).</p>
           </div>
 
           <div class="field col-4">
             <label for="densidad">Densidad</label>
             <div class="input-row">
-              <input id="densidad" type="text" inputmode="decimal" placeholder="Ej: 1.81" aria-describedby="helpDensidad" />
-              <select id="densidadUnidad" class="input-compact" aria-label="Unidad de densidad">
+              <input id="densidad" type="text" inputmode="decimal" placeholder="Ej: 1.81" />
+              <select id="densidadUnidad" class="input-compact">
                 <option value="kgL">kg/L (g/mL)</option>
                 <option value="kgm3">kg/m³</option>
               </select>
             </div>
-            <p class="help" id="helpDensidad">Ejemplo: <strong>1.81 kg/L</strong> equivale a <strong>1810 kg/m³</strong>. Se convierte automáticamente.</p>
+            <p class="help">Ejemplo: <strong>1.81 kg/L</strong> equivale a <strong>1810 kg/m³</strong>.</p>
           </div>
 
-          <div class="field col-6">
+          <!-- Ocultos -->
+          <div class="field col-6" id="wrapSolidosModo" hidden>
             <label for="solidosModo">Sólidos</label>
-            <select id="solidosModo" aria-describedby="helpSolidos">
-              <option value="auto">Auto (según densidad y tipo)</option>
-              <option value="manual">Manual (ingresar % sólidos)</option>
-            </select>
-            <p class="help" id="helpSolidos">
-              Auto usa: <span style="font-family:var(--mono)">Sólidos(%) = densidad(kg/L) × c1 + c2</span>.
-              (c1 y c2 dependen del esmalte).
-            </p>
+            <select id="solidosModo"><option value="auto">Auto</option></select>
+          </div>
+          <div class="field col-6" id="wrapSolidosManual" hidden>
+            <label for="solidosManual">Sólidos manual (%)</label>
+            <input id="solidosManual" type="text" inputmode="decimal" />
+          </div>
 
-            <!-- ✅ Detalles compactos justo debajo de "Sólidos" -->
+          <div class="field col-12">
             <details class="mini-details" id="detailsSolidos">
-              <summary>📌 Detalles de cálculo</summary>
+              <summary>📌 Ver detalles de cálculo</summary>
               <div class="mini-body">
                 <div class="mini-metric">
                   <div class="k">Volumen normalizado</div>
@@ -845,17 +743,10 @@
                   <div class="alert warning" id="alertWarning" hidden></div>
                   <div class="alert info" id="alertInfo">
                     <strong>Tip:</strong> El porcentaje de cada colorante se aplica sobre la <strong>masa de sólidos</strong>.
-                    Ejemplo: 100 L × 1.81 kg/L × 0.72 × 10% ≈ 13.03 kg.
                   </div>
                 </div>
               </div>
             </details>
-          </div>
-
-          <div class="field col-6" id="wrapSolidosManual" hidden>
-            <label for="solidosManual">Sólidos manual (%)</label>
-            <input id="solidosManual" type="text" inputmode="decimal" placeholder="Ej: 72" aria-describedby="helpSolidosManual"/>
-            <p class="help" id="helpSolidosManual">Ingresa el porcentaje de sólidos (0–100). Se convertirá a fracción (0–1).</p>
           </div>
         </div>
       </section>
@@ -872,7 +763,7 @@
           </div>
         </div>
 
-        <div class="table-wrap" role="region" aria-label="Tabla de colorantes">
+        <div class="table-wrap">
           <table>
             <thead>
               <tr>
@@ -923,8 +814,6 @@
 
       const STORAGE_KEY = "calc-colorantes-v3";
       const MAX_COLORANTS = 6;
-
-      // Modo planta (UI)
       const PLANT_KEY = "calc-colorantes-plant-mode";
 
       const esmaltes = {
@@ -936,6 +825,10 @@
       const nf2 = new Intl.NumberFormat("es-CO", { maximumFractionDigits: 2 });
       const nf4 = new Intl.NumberFormat("es-CO", { maximumFractionDigits: 4 });
       const nf6 = new Intl.NumberFormat("es-CO", { maximumFractionDigits: 6 });
+
+      // 3 decimales fijos para g
+      const nf3 = new Intl.NumberFormat("es-CO", { minimumFractionDigits: 3, maximumFractionDigits: 3 });
+      const nf3fixed = new Intl.NumberFormat("es-CO", { minimumFractionDigits: 3, maximumFractionDigits: 3 });
 
       function parseNumber(value) {
         if (value == null) return NaN;
@@ -968,13 +861,27 @@
         };
       }
 
+      function formatVolRaw(volRaw, volU) {
+        if (!Number.isFinite(volRaw)) return "—";
+        return (volU === "mililitros") ? nf3fixed.format(volRaw) : nf4.format(volRaw);
+      }
+
+      // ✅ SIEMPRE EN GRAMOS con 3 decimales (sin mg)
       function massToPretty(g) {
         if (!Number.isFinite(g)) return { main: "—", sub: "" };
-        if (Math.abs(g) >= 1000) {
+
+        const abs = Math.abs(g);
+
+        // principal: gramos siempre
+        const main = `${nf3.format(g)} g`;
+
+        // sub opcional: kg cuando sea >= 1000 g
+        if (abs >= 1000) {
           const kg = g / 1000;
-          return { main: `${nf2.format(kg)} kg`, sub: `${nf2.format(g)} g` };
+          return { main, sub: `${nf3.format(kg)} kg` };
         }
-        return { main: `${nf2.format(g)} g`, sub: "" };
+
+        return { main, sub: "" };
       }
 
       function downloadFile(filename, mime, content) {
@@ -989,9 +896,7 @@
         URL.revokeObjectURL(url);
       }
 
-      function showToast(msg) {
-        el.toast.textContent = msg;
-      }
+      function showToast(msg) { el.toast.textContent = msg; }
 
       function clearAlerts() {
         el.alertError.hidden = true;
@@ -1000,27 +905,24 @@
         el.alertWarning.textContent = "";
       }
 
-      // ✅ abre los detalles compactos SOLO si hay warning/error
       function setError(msg) {
         el.alertError.textContent = msg;
         el.alertError.hidden = false;
-        if (el.detailsSolidos) el.detailsSolidos.open = true;
       }
 
       function setWarning(msg) {
         el.alertWarning.textContent = msg;
         el.alertWarning.hidden = false;
-        if (el.detailsSolidos) el.detailsSolidos.open = true;
       }
 
       const el = {
         plantMode: document.getElementById("plantMode"),
-
         esmalteTipo: document.getElementById("esmalteTipo"),
         volumen: document.getElementById("volumen"),
         volumenUnidad: document.getElementById("volumenUnidad"),
         densidad: document.getElementById("densidad"),
         densidadUnidad: document.getElementById("densidadUnidad"),
+
         solidosModo: document.getElementById("solidosModo"),
         solidosManual: document.getElementById("solidosManual"),
         wrapSolidosManual: document.getElementById("wrapSolidosManual"),
@@ -1037,7 +939,6 @@
 
         alertError: document.getElementById("alertError"),
         alertWarning: document.getElementById("alertWarning"),
-
         detailsSolidos: document.getElementById("detailsSolidos"),
 
         body: document.getElementById("colorantsBody"),
@@ -1055,11 +956,7 @@
       };
 
       function defaultColorants() {
-        return [
-          { name: "", pct: "" },
-          { name: "", pct: "" },
-          { name: "", pct: "" }
-        ];
+        return [{ name: "", pct: "" },{ name: "", pct: "" },{ name: "", pct: "" }];
       }
 
       let state = loadState();
@@ -1068,43 +965,18 @@
       function loadState() {
         try {
           const raw = localStorage.getItem(STORAGE_KEY);
-          if (!raw) return {
-            tipo: "brillante",
-            vol: "",
-            volU: "litros",
-            dens: "",
-            densU: "kgL",
-            solModo: "auto",
-            solMan: "",
-            colorants: defaultColorants()
-          };
+          if (!raw) return { tipo:"brillante", vol:"", volU:"litros", dens:"", densU:"kgL", solModo:"auto", solMan:"", colorants: defaultColorants() };
           const s = JSON.parse(raw);
           const c = Array.isArray(s.colorants) ? s.colorants.slice(0, MAX_COLORANTS) : defaultColorants();
-          return {
-            tipo: s.tipo || "brillante",
-            vol: s.vol ?? "",
-            volU: s.volU || "litros",
-            dens: s.dens ?? "",
-            densU: s.densU || "kgL",
-            solModo: s.solModo || "auto",
-            solMan: s.solMan ?? "",
-            colorants: c.length ? c : defaultColorants()
-          };
+          return { tipo: s.tipo || "brillante", vol: s.vol ?? "", volU: s.volU || "litros", dens: s.dens ?? "", densU: s.densU || "kgL", solModo:"auto", solMan:"", colorants: c.length ? c : defaultColorants() };
         } catch {
-          return {
-            tipo: "brillante",
-            vol: "",
-            volU: "litros",
-            dens: "",
-            densU: "kgL",
-            solModo: "auto",
-            solMan: "",
-            colorants: defaultColorants()
-          };
+          return { tipo:"brillante", vol:"", volU:"litros", dens:"", densU:"kgL", solModo:"auto", solMan:"", colorants: defaultColorants() };
         }
       }
 
       function saveState() {
+        state.solModo = "auto";
+        state.solMan = "";
         localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
       }
 
@@ -1114,10 +986,10 @@
         el.volumenUnidad.value = state.volU;
         el.densidad.value = state.dens;
         el.densidadUnidad.value = state.densU;
-        el.solidosModo.value = state.solModo;
-        el.solidosManual.value = state.solMan;
 
-        el.wrapSolidosManual.hidden = state.solModo !== "manual";
+        if (el.solidosModo) { el.solidosModo.value = "auto"; el.solidosModo.disabled = true; }
+        if (el.solidosManual) { el.solidosManual.value = ""; el.solidosManual.disabled = true; }
+        if (el.wrapSolidosManual) el.wrapSolidosManual.hidden = true;
 
         updateDensityPlaceholder();
         renderColorants();
@@ -1183,7 +1055,6 @@
           btn.className = "icon-btn";
           btn.type = "button";
           btn.title = "Quitar colorante";
-          btn.ariaLabel = "Quitar colorante";
           btn.textContent = "✕";
           btn.disabled = state.colorants.length <= 1;
           btn.addEventListener("click", () => {
@@ -1200,11 +1071,7 @@
       }
 
       function updateDensityPlaceholder() {
-        if (el.densidadUnidad.value === "kgm3") {
-          el.densidad.placeholder = "Ej: 1810";
-        } else {
-          el.densidad.placeholder = "Ej: 1.81";
-        }
+        el.densidad.placeholder = (el.densidadUnidad.value === "kgm3") ? "Ej: 1810" : "Ej: 1.81";
       }
 
       function getNormalizedInputs() {
@@ -1220,17 +1087,10 @@
         const densU = el.densidadUnidad.value;
         if (Number.isFinite(densKgL) && densU === "kgm3") densKgL = densKgL / 1000;
 
-        const solModo = el.solidosModo.value;
-        const solManPct = parseNumber(el.solidosManual.value);
-
-        return { tipo, volRaw, volU, volL, densRaw, densU, densKgL, solModo, solManPct };
+        return { tipo, volRaw, volU, volL, densRaw, densU, densKgL };
       }
 
-      function computeSolidsFrac(tipo, densKgL, solModo, solManPct) {
-        if (solModo === "manual") {
-          if (!Number.isFinite(solManPct)) return NaN;
-          return solManPct / 100;
-        }
+      function computeSolidsFrac(tipo, densKgL) {
         const { c1, c2 } = esmaltes[tipo];
         if (!Number.isFinite(densKgL)) return NaN;
         return ((densKgL * c1) + c2) / 100;
@@ -1240,46 +1100,28 @@
         clearAlerts();
         showToast("");
 
-        [el.volumen, el.densidad, el.solidosManual].forEach(x => x.classList.remove("invalid"));
+        [el.volumen, el.densidad].forEach(x => x.classList.remove("invalid"));
 
-        const { tipo, volRaw, volU, volL, densRaw, densU, densKgL, solModo, solManPct } = getNormalizedInputs();
+        const { tipo, volRaw, volU, volL, densRaw, densU, densKgL } = getNormalizedInputs();
         const { c1, c2, label } = esmaltes[tipo];
 
         el.outConstantes.textContent = `${label}: c1=${c1}, c2=${c2}`;
 
         let hasError = false;
 
-        if (!Number.isFinite(volRaw) || volRaw <= 0) {
-          hasError = true;
-          el.volumen.classList.add("invalid");
-        }
-
-        if (!Number.isFinite(densRaw) || densRaw <= 0) {
-          hasError = true;
-          el.densidad.classList.add("invalid");
-        }
-
-        if (solModo === "manual") {
-          if (!Number.isFinite(solManPct) || solManPct <= 0) {
-            hasError = true;
-            el.solidosManual.classList.add("invalid");
-          }
-        }
+        if (!Number.isFinite(volRaw) || volRaw <= 0) { hasError = true; el.volumen.classList.add("invalid"); }
+        if (!Number.isFinite(densRaw) || densRaw <= 0) { hasError = true; el.densidad.classList.add("invalid"); }
 
         el.outVolumenL.textContent = formatL(Number.isFinite(volL) ? volL : NaN);
-        el.outVolumenRaw.textContent = `entrada: ${Number.isFinite(volRaw) ? nf4.format(volRaw) : "—"} ${volU === "litros" ? "L" : "mL"}`;
+        el.outVolumenRaw.textContent = `entrada: ${formatVolRaw(volRaw, volU)} ${volU === "litros" ? "L" : "mL"}`;
 
         el.outDensidadKgL.textContent = Number.isFinite(densKgL) ? `${nf4.format(densKgL)} kg/L` : "—";
         el.outDensidadRaw.textContent = `entrada: ${Number.isFinite(densRaw) ? nf4.format(densRaw) : "—"} ${densU === "kgL" ? "kg/L" : "kg/m³"}`;
 
-        const solFrac = computeSolidsFrac(tipo, densKgL, solModo, solManPct);
+        const solFrac = computeSolidsFrac(tipo, densKgL);
         const solidsFmt = formatSolids(solFrac);
         el.outSolidosPct.textContent = solidsFmt.pct;
         el.outSolidosFrac.textContent = solidsFmt.frac;
-
-        if (Number.isFinite(solFrac) && (solFrac <= 0 || solFrac > 1)) {
-          setWarning("Sólidos calculados fuera de rango (0–1). Revisa unidad de densidad o usa 'Sólidos manual'.");
-        }
 
         const canCompute =
           !hasError &&
@@ -1306,9 +1148,7 @@
           el.btnTxt.disabled = true;
           el.btnCsv.disabled = true;
 
-          if (hasError) {
-            setError("Completa volumen, densidad y sólidos (si está en modo manual). Revisa campos en rojo.");
-          }
+          if (hasError) setError("Completa volumen y densidad. Revisa campos en rojo.");
           lastComputed = { canCompute: false };
           return;
         }
@@ -1325,12 +1165,6 @@
         state.colorants.forEach((c, idx) => {
           const pct = parseNumber(c.pct);
           const pctClamped = Number.isFinite(pct) ? pct : 0;
-
-          const pctInput = el.body.querySelectorAll("tr")[idx]?.querySelectorAll("input")[1];
-          if (pctInput) {
-            pctInput.classList.toggle("invalid", Number.isFinite(pct) && (pct < 0 || pct > 100));
-          }
-
           totalPct += pctClamped;
 
           const g = masaSolidosKg * (pctClamped / 100) * 1000;
@@ -1344,17 +1178,11 @@
         });
 
         el.outPctTotal.textContent = formatPct(totalPct);
-        const prettyTotal = massToPretty(totalG);
-        el.outTotalAdd.textContent = prettyTotal.main;
+        el.outTotalAdd.textContent = massToPretty(totalG).main;
 
-        if (totalPct > 100.0001) {
-          el.outEstado.textContent = "Revisar % total";
-          setWarning("El porcentaje total de colorantes supera 100%. Verifica si eso es lo esperado para tu formulación.");
-        } else if (totalPct === 0) {
-          el.outEstado.textContent = "Sin %";
-        } else {
-          el.outEstado.textContent = "OK";
-        }
+        el.outEstado.textContent =
+          totalPct > 100.0001 ? "Revisar % total" :
+          totalPct === 0 ? "Sin %" : "OK";
 
         const hasAny = state.colorants.some(c => {
           const p = parseNumber(c.pct);
@@ -1365,125 +1193,7 @@
         el.btnTxt.disabled = !hasAny;
         el.btnCsv.disabled = !hasAny;
 
-        lastComputed = {
-          canCompute: true,
-          tipo,
-          tipoLabel: esmaltes[tipo].label,
-          volU,
-          volRaw,
-          volL,
-          densU,
-          densRaw,
-          densKgL,
-          solModo,
-          solFrac,
-          solManPct,
-          c1, c2,
-          masaTotalKg,
-          masaSolidosKg,
-          colorants: state.colorants.map((c) => {
-            const pct = parseNumber(c.pct);
-            const pctVal = Number.isFinite(pct) ? pct : 0;
-            const name = String(c.name || "").trim();
-            const g = masaSolidosKg * (pctVal / 100) * 1000;
-            return { name, pct: pctVal, g, kg: g/1000 };
-          }),
-          totalPct,
-          totalG,
-          totalKg: totalG / 1000,
-          generatedAt: new Date()
-        };
-      }
-
-      function buildReportText(data) {
-        const dt = data.generatedAt.toISOString().replace("T", " ").slice(0, 19);
-
-        let t = "";
-        t += "=== REPORTE DE COLORANTES ===\n";
-        t += `Generado: ${dt}\n\n`;
-        t += `Tipo de esmalte: ${data.tipoLabel.toUpperCase()} (c1=${data.c1}, c2=${data.c2})\n`;
-        t += `Volumen: ${Number.isFinite(data.volRaw) ? nf4.format(data.volRaw) : "—"} ${data.volU === "litros" ? "L" : "mL"}  | Normalizado: ${nf4.format(data.volL)} L\n`;
-        t += `Densidad: ${Number.isFinite(data.densRaw) ? nf4.format(data.densRaw) : "—"} ${data.densU === "kgL" ? "kg/L" : "kg/m³"} | Normalizado: ${nf4.format(data.densKgL)} kg/L\n`;
-        if (data.solModo === "manual") {
-          t += `Sólidos: MANUAL ${nf2.format(data.solManPct)}%  (fracción ${nf6.format(data.solFrac)})\n`;
-        } else {
-          t += `Sólidos: AUTO ${nf2.format(data.solFrac * 100)}%  (fracción ${nf6.format(data.solFrac)})\n`;
-        }
-        t += `Masa total: ${nf2.format(data.masaTotalKg)} kg\n`;
-        t += `Masa de sólidos: ${nf2.format(data.masaSolidosKg)} kg\n\n`;
-
-        t += "--- COLORANTES (sobre masa de sólidos) ---\n";
-        data.colorants.forEach((c, i) => {
-          if (c.pct > 0 || c.name) {
-            const name = c.name || `Colorante ${i + 1}`;
-            t += `\n${name}\n`;
-            t += `  %: ${nf2.format(c.pct)}%\n`;
-            t += `  Cantidad: ${nf2.format(c.kg)} kg (${nf2.format(c.g)} g)\n`;
-          }
-        });
-
-        t += `\n\nTotales:\n`;
-        t += `  % total: ${nf2.format(data.totalPct)}%\n`;
-        t += `  Total a adicionar: ${nf2.format(data.totalKg)} kg (${nf2.format(data.totalG)} g)\n`;
-
-        return t;
-      }
-
-      function buildCSV(data) {
-        const lines = [];
-        lines.push("nombre,porcentaje,kg,g");
-
-        data.colorants.forEach((c, i) => {
-          if (c.pct > 0 || c.name) {
-            const name = (c.name || `Colorante ${i + 1}`).replaceAll('"', '""');
-            lines.push(`"${name}",${c.pct.toFixed(4)},${c.kg.toFixed(6)},${c.g.toFixed(2)}`);
-          }
-        });
-
-        lines.push(`"TOTAL",${data.totalPct.toFixed(4)},${data.totalKg.toFixed(6)},${data.totalG.toFixed(2)}`);
-        return lines.join("\n");
-      }
-
-      async function copyReport() {
-        if (!lastComputed?.canCompute) return;
-        const text = buildReportText(lastComputed);
-
-        try {
-          if (navigator.clipboard?.writeText) {
-            await navigator.clipboard.writeText(text);
-            showToast("✅ Reporte copiado al portapapeles.");
-            return;
-          }
-        } catch {}
-
-        const ta = document.createElement("textarea");
-        ta.value = text;
-        document.body.appendChild(ta);
-        ta.select();
-        try {
-          document.execCommand("copy");
-          showToast("✅ Reporte copiado al portapapeles.");
-        } catch {
-          showToast("No se pudo copiar automáticamente. Usa exportación TXT.");
-        } finally {
-          ta.remove();
-        }
-      }
-
-      function exportTXT() {
-        if (!lastComputed?.canCompute) return;
-        const text = buildReportText(lastComputed);
-        const date = new Date().toISOString().slice(0,10);
-        downloadFile(`colorantes_${date}.txt`, "text/plain;charset=utf-8", text);
-        showToast("⬇️ TXT descargado.");
-      }
-
-      function exportCSV() {
-        if (!lastComputed?.canCompute) return;
-        const csv = buildCSV(lastComputed);
-        const date = new Date().toISOString().slice(0,10);
-        downloadFile(`colorantes_${date}.csv`, "text/csv;charset=utf-8", csv);
-        showToast("⬇️ CSV descargado.");
+        lastComputed = { canCompute: true, totalG };
       }
 
       function applyPlantMode(isOn) {
@@ -1497,9 +1207,7 @@
           const raw = localStorage.getItem(PLANT_KEY);
           if (!raw) return false;
           return !!JSON.parse(raw);
-        } catch {
-          return false;
-        }
+        } catch { return false; }
       }
 
       function wireEvents() {
@@ -1510,55 +1218,14 @@
           });
         }
 
-        el.esmalteTipo.addEventListener("change", () => {
-          state.tipo = el.esmalteTipo.value;
-          saveState();
-          compute();
-        });
-
-        el.volumen.addEventListener("input", () => {
-          state.vol = el.volumen.value;
-          saveState();
-          compute();
-        });
-
-        el.volumenUnidad.addEventListener("change", () => {
-          state.volU = el.volumenUnidad.value;
-          saveState();
-          compute();
-        });
-
-        el.densidad.addEventListener("input", () => {
-          state.dens = el.densidad.value;
-          saveState();
-          compute();
-        });
-
-        el.densidadUnidad.addEventListener("change", () => {
-          state.densU = el.densidadUnidad.value;
-          updateDensityPlaceholder();
-          saveState();
-          compute();
-        });
-
-        el.solidosModo.addEventListener("change", () => {
-          state.solModo = el.solidosModo.value;
-          el.wrapSolidosManual.hidden = state.solModo !== "manual";
-          saveState();
-          compute();
-        });
-
-        el.solidosManual.addEventListener("input", () => {
-          state.solMan = el.solidosManual.value;
-          saveState();
-          compute();
-        });
+        el.esmalteTipo.addEventListener("change", () => { state.tipo = el.esmalteTipo.value; saveState(); compute(); });
+        el.volumen.addEventListener("input", () => { state.vol = el.volumen.value; saveState(); compute(); });
+        el.volumenUnidad.addEventListener("change", () => { state.volU = el.volumenUnidad.value; saveState(); compute(); });
+        el.densidad.addEventListener("input", () => { state.dens = el.densidad.value; saveState(); compute(); });
+        el.densidadUnidad.addEventListener("change", () => { state.densU = el.densidadUnidad.value; updateDensityPlaceholder(); saveState(); compute(); });
 
         el.btnAdd.addEventListener("click", () => {
-          if (state.colorants.length >= MAX_COLORANTS) {
-            showToast(`Máximo ${MAX_COLORANTS} colorantes.`);
-            return;
-          }
+          if (state.colorants.length >= MAX_COLORANTS) { showToast(`Máximo ${MAX_COLORANTS} colorantes.`); return; }
           state.colorants.push({ name: "", pct: "" });
           saveState();
           renderColorants();
@@ -1572,10 +1239,6 @@
           compute();
           showToast("Campos de colorantes reiniciados.");
         });
-
-        el.btnCopy.addEventListener("click", copyReport);
-        el.btnTxt.addEventListener("click", exportTXT);
-        el.btnCsv.addEventListener("click", exportCSV);
       }
 
       function init() {
@@ -1583,8 +1246,11 @@
 
         applyPlantMode(loadPlantMode());
 
-        // ✅ En planta: detalles cerrados por defecto
-        if (el.detailsSolidos) el.detailsSolidos.open = false;
+        // Siempre cerrado al cargar
+        if (el.detailsSolidos) {
+          el.detailsSolidos.removeAttribute("open");
+          el.detailsSolidos.open = false;
+        }
 
         wireEvents();
         renderAll();
@@ -1594,4 +1260,4 @@
     })();
   </script>
 </body>
-  </html>
+</html>
